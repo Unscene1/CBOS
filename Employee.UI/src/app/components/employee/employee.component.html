@@ -1,0 +1,51 @@
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+  <table width="100%" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" height="100%">
+      <tbody>
+          <tr>
+              <td valign="top" align="center">
+                  <table width="1000" bgcolor="#FFFFFF" cellpadding="0" cellspacing="0" height="100%">
+                      <tbody>
+                          <tr>
+                              <td style="padding: 15px 23px 15px; font-family: 'Times New Roman',Times,serif; color: #363636; text-align: justify;">
+                                  <div class='container'>
+                                      <div class='content'>
+                                        <button (click)="initNewEmployee()">Create New Employee</button>
+                                        <br/>
+                                        <br/>
+                                        <table class="tbl">
+                                          <thead>
+                                              <tr class="tbl">
+                                                  <th class="grid active">Active</th>
+                                                  <th class="grid">First Name</th>
+                                                  <th class="grid">Last Name</th>
+                                                  <th class="grid">FullName</th>
+                                                  <th class="grid">ContactNumber</th>
+                                                  <th class="grid">EmailAddress</th>
+                                                  <th class="grid btn"></th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                            <tr class="tbl" *ngFor="let employee of employees">
+                                              <td [ngStyle]="{ 'color' : employee.isActive == true ? '#73c7af' : '#ff0000' }" >{{ employee.isActive }}</td>
+                                              <td>{{ employee.firstName }}</td>
+                                              <td>{{ employee.lastName }}</td>
+                                              <td>{{ employee.fullName }}</td>
+                                              <td>{{ employee.contactNumber }}</td>
+                                              <td>{{ employee.emailAddress }}</td>
+                                              <td><button (click)="editEmployee(employee)">Edit</button></td>
+                                            </tr>
+                                          </tbody>
+                                        </table>
+                                        <br/>
+                                        <app-edit-employee [employee]="employeeToEdit" (employeeUpdated)="updateEmployeeList($event)"></app-edit-employee>
+                                      </div>
+                                  </div>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </td>
+          </tr>
+      </tbody>
+  </table>
+</body>

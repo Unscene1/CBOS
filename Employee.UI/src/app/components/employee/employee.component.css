@@ -1,0 +1,9 @@
+.grid {
+    width: 15%;
+    border: black;
+}
+
+.tbl {
+    border: 1px solid black;
+    border-collapse: collapse;
+}

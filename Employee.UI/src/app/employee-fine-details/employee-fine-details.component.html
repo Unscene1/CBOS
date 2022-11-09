@@ -1,0 +1,9 @@
+<div *ngIf="employee">
+    <h2>{{ employee.fullName }}</h2>
+    
+  <div class="userInput col-md-2">
+    Fine Description: 
+    <input [(ngModel)]="fines" placeholder="Fine Description"/>
+  </div>
+  <button (click)="createFine(employee)" *ngIf="employee.employeeId">Save</button>
+</div>
